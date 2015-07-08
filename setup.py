@@ -27,7 +27,7 @@ def version_read():
 
 
 setup(
-    name='entropy',
+    name='grip-entropy',
     version=version_read(),
     description='',
     long_description=(docs_read('README.rst')),
