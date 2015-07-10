@@ -3,7 +3,7 @@
 
 from Naked.toolshed.shell import run
 from Naked.toolshed.system import exit_fail
-from entropy.parser.git_log_parser import GitLogParser
+from commit_entropy.parser.git_log_parser import GitLogParser
 from datetime import datetime
 from datetime import timedelta, date
 import statistics
