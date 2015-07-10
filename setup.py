@@ -7,7 +7,7 @@ def docs_read(fname):
     return open(os.path.join(os.path.dirname(__file__), 'docs', fname)).read()
 
 def version_read():
-    settings_file = open(os.path.join(os.path.dirname(__file__), 'lib', 'entropy', 'settings.py')).read()
+    settings_file = open(os.path.join(os.path.dirname(__file__), 'lib', 'commit_entropy', 'settings.py')).read()
     major_regex = """major_version\s*?=\s*?["']{1}(\d+)["']{1}"""
     minor_regex = """minor_version\s*?=\s*?["']{1}(\d+)["']{1}"""
     patch_regex = """patch_version\s*?=\s*?["']{1}(\d+)["']{1}"""
@@ -27,7 +27,7 @@ def version_read():
 
 
 setup(
-    name='grip-entropy',
+    name='commit-entropy',
     version=version_read(),
     description='',
     long_description=(docs_read('README.rst')),
@@ -38,7 +38,7 @@ setup(
     platforms=['any'],
     entry_points = {
         'console_scripts': [
-            'entropy = entropy.app:main'
+            'commit-entropy = commit_entropy.app:main'
         ],
     },
     packages=find_packages("lib"),

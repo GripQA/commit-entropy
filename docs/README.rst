@@ -1,12 +1,12 @@
-Entropy
-=======
+Commit Entropy
+==============
 
-Entropy is a tool that can be used to calculate the entropy of changes
-in a source code repository. Entropy for code changes is a measure of
-how specific each commit was in relation to the entire code base. Very
-specific commits only affect a small set of files, and thus have a low
-entropy. Commits that touch a large number of files are much less
-specific and have a higher entropy as a result.
+Commit Entropy is a tool that can be used to calculate the entropy of
+changes in a source code repository. Entropy for code changes is a
+measure of how specific each commit was in relation to the entire code
+base. Very specific commits only affect a small set of files, and thus
+have a low entropy. Commits that touch a large number of files are much
+less specific and have a higher entropy as a result.
 
 The term Entropy in this context is a simplified application of `Shannon
 Entropy <https://en.wikipedia.org/wiki/Entropy_%28information_theory%29>`__
@@ -17,23 +17,23 @@ probability.
 Installation
 ------------
 
-Entropy currently supports `Python
+Commit Entropy currently supports `Python
 3.x <https://www.python.org/downloads/>`__. It can be installed using
 `pip <https://pip.pypa.io/en/latest/>`__.
 
 ::
 
-    pip install grip-entropy
+    pip install commit-entropy
 
-This will install the ``entropy`` executable on your path.
+This will install the ``commit-entropy`` executable on your path.
 
 If you don't have pip, you can install it manually by cloning the code
 and running the install script:
 
 ::
 
-    git clone git@github.com:GripQA/entropy.git
-    cd entropy
+    git clone git@github.com:GripQA/commit-entropy.git
+    cd commit-ntropy
     python setup.py install
 
 Usage
@@ -45,7 +45,7 @@ repo:
 
 ::
 
-    entropy csv
+    commit-entropy csv
 
 This will output a ``entropy.csv`` file in the current directory with
 the average entropy values.
@@ -54,4 +54,5 @@ Support
 -------
 
 If you have any questions, problems, or suggestions, please submit an
-`issue </GripQA/entropy/issues>`__ or contact us at support@grip.qa.
+`issue </GripQA/commit-entropy/issues>`__ or contact us at
+support@grip.qa.

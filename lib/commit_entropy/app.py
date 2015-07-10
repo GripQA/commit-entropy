@@ -2,14 +2,14 @@
 # encoding: utf-8
 
 #------------------------------------------------------------------------------
-# entropy
+# commit_entropy
 # Copyright 2015 Grip QA
 # apache
 #------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------
-# c.cmd = Primary command (entropy <primary command>)
-# c.cmd2 = Secondary command (entropy <primary command> <secondary command>)
+# c.cmd = Primary command (commit-entropy <primary command>)
+# c.cmd2 = Secondary command (commit-entropy <primary command> <secondary command>)
 #
 # c.arg_to_cmd = first positional argument to the primary command
 # c.arg_to_cmd2 = first positional argument to the secondary command
@@ -42,24 +42,24 @@ def main():
     # Test that user entered at least one argument to the executable, print usage if not
     #------------------------------------------------------------------------------------------
     if not c.command_suite_validates():
-        from entropy.settings import usage as entropy_usage
-        print(entropy_usage)
+        from commit_entropy.settings import usage as commit_entropy_usage
+        print(commit_entropy_usage)
         sys.exit(1)
     #------------------------------------------------------------------------------------------
     # [ NAKED FRAMEWORK COMMANDS ]
     # Naked framework provides default help, usage, and version commands for all applications
-    #   --> settings for user messages are assigned in the lib/entropy/settings.py file
+    #   --> settings for user messages are assigned in the lib/commit_entropy/settings.py file
     #------------------------------------------------------------------------------------------
-    if c.help():      # User requested entropy help information
-        from entropy.settings import help as entropy_help
-        print(entropy_help)
+    if c.help():      # User requested commit-entropy help information
+        from commit_entropy.settings import help as entropy_help
+        print(commit_entropy_help)
         sys.exit(0)
-    elif c.usage():   # User requested entropy usage information
-        from entropy.settings import usage as entropy_usage
-        print(entropy_usage)
+    elif c.usage():   # User requested commit-entropy usage information
+        from commit_entropy.settings import usage as commit_entropy_usage
+        print(commit_entropy_usage)
         sys.exit(0)
-    elif c.version(): # User requested entropy version information
-        from entropy.settings import app_name, major_version, minor_version, patch_version
+    elif c.version(): # User requested commit-entropy version information
+        from commit_entropy.settings import app_name, major_version, minor_version, patch_version
         version_display_string = app_name + ' ' + major_version + '.' + minor_version + '.' + patch_version
         print(version_display_string)
         sys.exit(0)
@@ -75,16 +75,16 @@ def main():
     # 		      print('Hello World!')
     # elif c.cmd == 'spam':
     #     if c.option_with_arg('--with'):
-    # 		  friend_of_spam = c.arg('--with')    # user enters entropy spam --with eggs
+    # 		  friend_of_spam = c.arg('--with')    # user enters commit-entropy spam --with eggs
     # 		  print('spam and ' + friend_of_spam) # prints 'spam and eggs'
     # elif c.cmd == 'naked':
     #     if c.flag("--language"):
-    #         lang = c.flag_arg("--language")     # user enters entropy naked --language=python
+    #         lang = c.flag_arg("--language")     # user enters commit-entropy naked --language=python
     #         print("Naked & " + lang)            # prints 'Naked & python'
     # End example --------------------------------------->>>
 
     elif c.cmd == 'csv':
-        from entropy.commands.csv_printer import CsvPrinter
+        from commit_entropy.commands.csv_printer import CsvPrinter
         printer = CsvPrinter()
         printer.run()
 
