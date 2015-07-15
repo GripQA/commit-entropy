@@ -29,4 +29,4 @@ This will output a `entropy.csv` file in the current directory with the average 
 
 Support
 -------
-If you have any questions, problems, or suggestions, please submit an [issue](/GripQA/commit-entropy/issues) or contact us at support@grip.qa.
+If you have any questions, problems, or suggestions, please submit an [issue](https://github.com/GripQA/commit-entropy/issues) or contact us at support@grip.qa.
