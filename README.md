@@ -4,6 +4,8 @@ Commit Entropy is a tool that can be used to calculate the entropy of changes in
 
 The term Entropy in this context is a simplified application of [Shannon Entropy](https://en.wikipedia.org/wiki/Entropy_%28information_theory%29) to commits in a source repository. It's simplified since we only look at the number of files changed each commit, with each file having an equal probability.
 
+Read more about entropy on our [blog](http://grip.qa/blog/entropy-measuring-software-maturity/).
+
 Installation
 ------------
 Commit Entropy currently supports [Python 3.x](https://www.python.org/downloads/). It can be installed using [pip](https://pip.pypa.io/en/latest/).
