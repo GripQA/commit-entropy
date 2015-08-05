@@ -28,6 +28,9 @@ Currently we support a single operation: exporting a csv file with the average e
 
 This will output a `entropy.csv` file in the current directory with the average entropy values.
 
+You can ignore a list of paths by using the `--ignore` option:
+
+    commit-entropy csv --ignore=vendor/*,*.log
 
 Support
 -------
