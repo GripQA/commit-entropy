@@ -85,8 +85,12 @@ def main():
 
     elif c.cmd == 'csv':
         from commit_entropy.commands.csv_printer import CsvPrinter
+        if c.flag('--ignore'):
+            ignore = c.flag_arg('--ignore').split(',')
+        else:
+            ignore = []
         printer = CsvPrinter()
-        printer.run()
+        printer.run(ignore=ignore)
 
     #------------------------------------------------------------------------------------------
     # [ DEFAULT MESSAGE FOR MATCH FAILURE ]
