@@ -16,10 +16,10 @@ def daterange(start_date, end_date):
         yield start_date + timedelta(n)
 
 class CsvPrinter:
-    def run(self):
+    def run(self, ignore=[]):
         self.ensure_git_repo()
         log_output = self.get_git_log()
-        commits = GitLogParser().parse_stream(log_output)
+        commits = GitLogParser().parse_stream(log_output, ignore=ignore)
         for commit in commits:
             commit['entropy'] = self.get_entropy(commit)
 

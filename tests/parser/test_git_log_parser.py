@@ -2,7 +2,7 @@
 # coding=utf-8
 
 import unittest
-from entropy.parser.git_log_parser import GitLogParser
+from commit_entropy.parser.git_log_parser import GitLogParser
 from datetime import datetime, timezone, timedelta
 
 class GitLogParserTest(unittest.TestCase):
@@ -12,6 +12,7 @@ class GitLogParserTest(unittest.TestCase):
         self.author_line = 'Author: Some Author <some.author@example.com>'
         self.date_line = 'Date:   Thu Jan 1 12:34:56 2015 +0100'
         self.file_line = '1       1       some/file/path.py'
+        self.ignored_file_line = '1       1       ignored/some/file/path.py'
         self.ignored_merge_line = 'Merge: 390c4e4 def4036'
         self.ignored_comment_line = '    Some Comment Line'
         self.ignored_line = 'Ignored Content'
@@ -25,6 +26,7 @@ Date:   Thu Jan 1 12:34:56 2015 +0100
 
 1       1       some/file/path.py
 1       0       some/other/path.py
+1       1       ignored/some/file/path.py
 0       1       yet/another/file/path.py
 0       0       yet/another/file/path.py
 """.strip()
@@ -41,7 +43,7 @@ Date:   Thu Jan 1 12:34:56 2015 +0100
                     'count': 4,
                 },
             ],
-            self.parser.parse(self.complete_commit)
+            self.parser.parse(self.complete_commit, ignore=["ignored/*"])
         )
 
     def try_fetch_attribute_test(self):
@@ -61,6 +63,14 @@ Date:   Thu Jan 1 12:34:56 2015 +0100
         self.assertEqual(
             ('count', 1),
             self.parser.try_fetch_attribute(self.file_line)
+        )
+        self.assertEqual(
+            ('count', 1),
+            self.parser.try_fetch_attribute(self.ignored_file_line)
+        )
+        self.assertEqual(
+            None,
+            self.parser.try_fetch_attribute(self.ignored_file_line, ignore=["ignored/*"])
         )
         self.assertEqual(None, self.parser.try_fetch_attribute(self.ignored_merge_line))
         self.assertEqual(None, self.parser.try_fetch_attribute(self.ignored_comment_line))
