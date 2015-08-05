@@ -14,6 +14,9 @@ to commits in a source repository. It's simplified since we only look at
 the number of files changed each commit, with each file having an equal
 probability.
 
+Read more about entropy on our
+`blog <http://grip.qa/blog/entropy-measuring-software-maturity/>`__.
+
 Installation
 ------------
 
@@ -33,7 +36,7 @@ and running the install script:
 ::
 
     git clone git@github.com:GripQA/commit-entropy.git
-    cd commit-ntropy
+    cd commit-entropy
     python setup.py install
 
 Usage
@@ -50,9 +53,14 @@ repo:
 This will output a ``entropy.csv`` file in the current directory with
 the average entropy values.
 
+You can ignore a list of paths by using the ``--ignore`` option:
+
+::
+
+    commit-entropy csv --ignore=vendor/*,*.log
+
 Support
 -------
 
 If you have any questions, problems, or suggestions, please submit an
-`issue </GripQA/commit-entropy/issues>`__ or contact us at
-support@grip.qa.
+`issue <../../issues>`__ or contact us at support@grip.qa.
