@@ -29,9 +29,9 @@ def version_read():
 setup(
     name='commit-entropy',
     version=version_read(),
-    description='',
+    description='A tool to measure the entropy of your commit history',
     long_description=(docs_read('README.rst')),
-    url='',
+    url='https://github.com/GripQA/commit-entropy/',
     license='apache',
     author='Grip QA',
     author_email='',
